@@ -1,13 +1,18 @@
 import requests
 from bs4 import BeautifulSoup
 import mysql.connector
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
 def create_database_connection():
+    # import pdb;pdb.set_trace()
+    
     return mysql.connector.connect(
-        host="localhost",
-        user="Dhruv",
-        password="root",
-        database="scraper"
+        host=os.getenv("db_host"),
+        user=os.getenv("db_user"),
+        password=os.getenv("db_password"),
+        database=os.getenv("db_database")
     )
 
 def create_table(connection):
@@ -73,5 +78,5 @@ def scrape_website_and_store(url):
     except requests.exceptions.RequestException as e:
         print(f"Failed to retrieve the webpage: {e}")
 
-url_to_scrape = 'https://www.w3resource.com/python-exercises/oop/python-oop-exercise-9.php'
+url_to_scrape = 'https://www.w3resource.com/python-exercises/map/python-map-exercise-2.php'
 scrape_website_and_store(url_to_scrape)
