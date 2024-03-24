@@ -78,5 +78,5 @@ def scrape_website_and_store(url):
     except requests.exceptions.RequestException as e:
         print(f"Failed to retrieve the webpage: {e}")
 
-url_to_scrape = 'https://www.w3resource.com/python-exercises/map/python-map-exercise-2.php'
+url_to_scrape = 'https://www.w3resource.com/python-exercises/data-structures-and-algorithms/python-linked-list-exercise-11.php'
 scrape_website_and_store(url_to_scrape)
